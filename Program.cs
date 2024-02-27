@@ -6,8 +6,7 @@ namespace PasswordGenerator
         static void Main(string[] args)
         {
             string input;
-            do
-            {
+            
                 Console.Clear();
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("Please select  the password strength:");
@@ -17,7 +16,7 @@ namespace PasswordGenerator
                 Console.WriteLine("k for end");
                 Console.WriteLine("-------------------------------------------------------------");
 
-                string pressedKey = Console.ReadLine(); 
+                string pressedKey = Console.ReadLine();
                 input = pressedKey.ToLower();
                 Console.Clear();
                 if (input.Length <= 0 || input.Length > 1 || input == " ")
@@ -64,10 +63,8 @@ namespace PasswordGenerator
 
 
 
-            } while (input != "k");
-            Console.WriteLine("END OF THE PROGRAM");
-            Console.ReadKey();
             
+
         }
     }
 }
