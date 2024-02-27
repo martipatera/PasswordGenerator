@@ -66,6 +66,7 @@ namespace PasswordGenerator
 
             } while (input != "k");
             Console.WriteLine("END OF THE PROGRAM");
+            Console.ReadKey();
             
         }
     }
