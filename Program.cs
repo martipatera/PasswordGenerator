@@ -5,6 +5,7 @@ namespace PasswordGenerator
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             string input;
             while (true) /* podminku nastavime aby byla vzdy pravdiva = je nekonecna
                           * kdyz podminka if bude pravdiva, hodi se to do switche a ukonci se while loop pomoci break 
@@ -22,26 +23,138 @@ namespace PasswordGenerator
 
                 string pressedKey = Console.ReadLine();
                 input = pressedKey.ToLower();
-                Console.Clear();
 
-                if(input.Lenght == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "3" || input == "š" || input == "k"))
+                
+                
+
+                if(input.Length == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "3" || input == "š" || input == "k"))
                 {
                     switch (input)
                     {
                         case "1":
                         case "+":
-                            Console.WriteLine("Pressed " + input);
-                            break; //ukonceni switche, musi byt!!!
+                            while (true) //nekonecna smicka, zastavi jedine break
+                            {
+                                
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("ENTER A PASSWORD LENGHT: ");
+                                Console.WriteLine("PRESS K FOR END ");
+                                Console.WriteLine("-------------------------------------------------------------");
+                                string passwordLenghtinput = Console.ReadLine();
+                                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                                {
+                                    if (passwordLenght >= 8)
+                                    {
+                                        Console.WriteLine(passwordLenght);
+                                        break;
+
+                                    }
+
+
+                                    else
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
+                                    }
+                                }
+                                else if (passwordLenghtinput == "k")
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("END OF PROGRAM");
+                                    break;
+                                }
+
+                                else//kdyz se nepovede prevedeni string inputu na int, provede se tento radek
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine(passwordLenghtinput + " IS INVALID INPUT PLEASE TRY AGAIN");
+                                }
+                                
+                            }
+                            break;
+                            
 
                         case "2":
                         case "ě":
-                            Console.WriteLine("Pressed " + input);
-                            break; //ukonceni switche, musi byt!!!
+                            while(true) //nekonecna smicka, zastavi jecine break
+                            {
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("ENTER A PASSWORD LENGHT: ");
+                                Console.WriteLine("PRESS K FOR END ");
+                                Console.WriteLine("-------------------------------------------------------------");
+                                string passwordLenghtinput = Console.ReadLine();
+                                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                                {
+                                    if (passwordLenght >= 8)
+                                    {
+                                        Console.WriteLine(passwordLenght);
+                                        break;
+
+                                    }
+
+
+                                    else
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
+                                    }
+                                }
+                                else if (passwordLenghtinput == "k")
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("END OF PROGRAM");
+                                    break;
+                                }
+
+                                else//kdyz se nepovede prevedeni string inputu na int, provede se tento radek
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine(passwordLenghtinput + " IS INVALID INPUT PLEASE TRY AGAIN");
+                                }
+
+                            }
+                            break;
 
                         case "3":
                         case "š":
-                            Console.WriteLine("Pressed " + input);
-                            break; //ukonceni switche, musi byt!!!
+                            while(true) //nekonecna smicka, zastavi jecine break
+                            {
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("ENTER A PASSWORD LENGHT: ");
+                                Console.WriteLine("PRESS K FOR END ");
+                                Console.WriteLine("-------------------------------------------------------------");
+                                string passwordLenghtinput = Console.ReadLine();
+                                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                                {
+                                    if (passwordLenght >= 8)
+                                    {
+                                        Console.WriteLine(passwordLenght);
+                                        break;
+
+                                    }
+
+
+                                    else
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
+                                    }
+                                }
+                                else if (passwordLenghtinput == "k")
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("END OF PROGRAM");
+                                    break;
+                                }
+
+                                else//kdyz se nepovede prevedeni string inputu na int, provede se tento radek
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine(passwordLenghtinput + " IS INVALID INPUT PLEASE TRY AGAIN");
+                                }
+
+                            }
+                            break;
 
 
                         case "k":
@@ -56,8 +169,8 @@ namespace PasswordGenerator
                 }
                 else //bude se opakovat dokud nezadam spravnou podminku if
                 {
-
-                    Console.WriteLine("WRONG INPUT PLEASE TRY AGAIN");                   
+                    Console.Clear();
+                    Console.WriteLine(input + " IS WRONG INPUT PLEASE TRY AGAIN");                   
                 }
             }
 
