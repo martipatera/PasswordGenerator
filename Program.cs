@@ -24,7 +24,7 @@ namespace PasswordGenerator
                 input = pressedKey.ToLower();
                 Console.Clear();
 
-                if (input == "1" || input == "+" || input == "2" || input == "ě" || input == "3" || input == "š" || input == "k")
+                if(input.Lenght == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "3" || input == "š" || input == "k"))
                 {
                     switch (input)
                     {
