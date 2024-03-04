@@ -29,7 +29,7 @@ namespace PasswordGenerator
                         for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
                         {
                             int randomIndex = random.Next(characters.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem toho daneho pole
-                            Console.WriteLine("random inxex je: {0}, random char je: {1}", randomIndex, characters[randomIndex]);
+                            Console.WriteLine("{2}  random inxex je: {0}, random char je: {1}", randomIndex, characters[randomIndex],i);
 
                         }
 
@@ -85,7 +85,7 @@ namespace PasswordGenerator
                         for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
                         {
                             int randomIndex = random.Next(charactersandnumbers.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem{maximalnim indexem} toho daneho pole)
-                            Console.WriteLine("random inxex je: {0}, random char je: {1}", randomIndex, charactersandnumbers[randomIndex]);
+                            Console.WriteLine("{2}  random inxex je: {0}, random char je: {1}", randomIndex, charactersandnumbers[randomIndex],i);
 
                         }
 
@@ -141,7 +141,7 @@ namespace PasswordGenerator
                         for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
                         {
                             int randomIndex = random.Next(charactersandnumbersandspecialSymbols.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem{maximalnim indexem} toho daneho pole)
-                            Console.WriteLine("random inxex je: {0}, random char je: {1}", randomIndex, charactersandnumbersandspecialSymbols[randomIndex]);
+                            Console.WriteLine("{2}  random inxex je: {0}, random char je: {1}", randomIndex, charactersandnumbersandspecialSymbols[randomIndex],i);
 
                         }
 
