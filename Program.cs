@@ -6,7 +6,38 @@ namespace PasswordGenerator
         static void Main(string[] args)
         {
             Console.Clear();
+            Random random = new Random();
+            char[] characters =
+                {
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+                };
+
+
+            char[] numbers =
+                {
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+                };
+
+            char[] specialSymbols =
+                {
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                    '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', ';', ':', ',', '.', '<', '>', '/', '?',
+                    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+
+                };
+
+
             string input;
+
+
+            Random password = new Random(); // musim declarovat abych mohl pouzivat random
+
+
+
             while (true) /* podminku nastavime aby byla vzdy pravdiva = je nekonecna
                           * kdyz podminka if bude pravdiva, hodi se to do switche a ukonci se while loop pomoci break 
                           * kdyz zadam cokoliv jineho bude se to opakovat protoze v else nemam break*/
@@ -45,7 +76,16 @@ namespace PasswordGenerator
                                 {
                                     if (passwordLenght >= 8)
                                     {
-                                        Console.WriteLine(passwordLenght);
+                                        
+                                        
+                                        for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
+                                        {
+                                            int randomIndex = random.Next(characters.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem toho daneho pole
+                                            Console.WriteLine("random inxex je: {0}, random char je: {1}", randomIndex , characters[randomIndex])  ;
+
+                                        }
+
+                                     
                                         break;
 
                                     }
@@ -87,7 +127,13 @@ namespace PasswordGenerator
                                 {
                                     if (passwordLenght >= 8)
                                     {
-                                        Console.WriteLine(passwordLenght);
+                                        for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
+                                        {
+                                            int randomIndex = random.Next(numbers.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem{maximalnim indexem} toho daneho pole)
+                                            Console.WriteLine("random inxex je: {0}, random char je: {1}", randomIndex, numbers[randomIndex]);
+
+                                        }
+
                                         break;
 
                                     }
@@ -128,7 +174,13 @@ namespace PasswordGenerator
                                 {
                                     if (passwordLenght >= 8)
                                     {
-                                        Console.WriteLine(passwordLenght);
+                                        for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
+                                        {
+                                            int randomIndex = random.Next(specialSymbols.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem{maximalnim indexem} toho daneho pole)
+                                            Console.WriteLine("random inxex je: {0}, random char je: {1}", randomIndex, specialSymbols[randomIndex]);
+
+                                        }
+
                                         break;
 
                                     }
