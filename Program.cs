@@ -4,8 +4,10 @@ namespace PasswordGenerator
     internal class Program
     {
 
+
         static void OnlyCharacters()
         {
+            string password = " ";
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] characters =
                 {
@@ -29,9 +31,10 @@ namespace PasswordGenerator
                         for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
                         {
                             int randomIndex = random.Next(characters.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem toho daneho pole
-                            Console.WriteLine("{2}  random inxex je: {0}, random char je: {1}", randomIndex, characters[randomIndex],i);
-
+                            password = password + characters[randomIndex];
+                            
                         }
+                        Console.WriteLine(password);
 
 
                         break;
@@ -64,6 +67,7 @@ namespace PasswordGenerator
 
         static void CharactersAndNumbers()
         {
+            string password = " ";
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbers =
                 {
@@ -85,11 +89,14 @@ namespace PasswordGenerator
                         for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
                         {
                             int randomIndex = random.Next(charactersandnumbers.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem{maximalnim indexem} toho daneho pole)
-                            Console.WriteLine("{2}  random inxex je: {0}, random char je: {1}", randomIndex, charactersandnumbers[randomIndex],i);
+                            password = password + charactersandnumbers[randomIndex];
+                            
 
                         }
+                        Console.WriteLine(password);
 
                         break;
+                        
 
                     }
 
@@ -118,6 +125,7 @@ namespace PasswordGenerator
 
         static void CharactersNumbersAndSymbols()
         {
+            string password = " ";
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbersandspecialSymbols =
                 {
@@ -141,9 +149,10 @@ namespace PasswordGenerator
                         for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
                         {
                             int randomIndex = random.Next(charactersandnumbersandspecialSymbols.Length); //tento radek mi bude vytvared nahodny index (s maximalnim rozsahem{maximalnim indexem} toho daneho pole)
-                            Console.WriteLine("{2}  random inxex je: {0}, random char je: {1}", randomIndex, charactersandnumbersandspecialSymbols[randomIndex],i);
-
+                            password = password + charactersandnumbersandspecialSymbols[randomIndex];
+                            
                         }
+                        Console.WriteLine(password);
 
                         break;
 
