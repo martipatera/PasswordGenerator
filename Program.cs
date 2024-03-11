@@ -22,7 +22,7 @@ namespace PasswordGenerator
                 Console.WriteLine("PRESS K FOR END ");
                 Console.WriteLine("-------------------------------------------------------------");
                 string passwordLenghtinput = Console.ReadLine();
-                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght //out znamena ze passwordLenght jeste neni deklarovana protoze tan na
                 {
                     if (passwordLenght >= 8)
                     {
@@ -82,7 +82,7 @@ namespace PasswordGenerator
                 Console.WriteLine("PRESS K FOR END ");
                 Console.WriteLine("-------------------------------------------------------------");
                 string passwordLenghtinput = Console.ReadLine();
-                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght //out znamena ze passwordLenght jeste neni deklarovana protoze tan na
                 {
                     if (passwordLenght >= 8)
                     {
@@ -142,7 +142,7 @@ namespace PasswordGenerator
                 Console.WriteLine("PRESS K FOR END ");
                 Console.WriteLine("-------------------------------------------------------------");
                 string passwordLenghtinput = Console.ReadLine();
-                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght//out znamena ze passwordLenght jeste neni deklarovana protoze tan na
                 {
                     if (passwordLenght >= 8)
                     {
