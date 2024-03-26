@@ -16,11 +16,16 @@ namespace PasswordGenerator
             using (StreamReader sr = new StreamReader(path)) //cte to co je v path
             {
                 string line;
+                Console.Clear();
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("YOUR PASSWORDS");
+                Console.WriteLine("-------------------------------------------------------------");
                 while (!(sr.EndOfStream)) // dokud NEnastane konec souboru bude cist radky
                 {
                     line = sr.ReadLine(); //nacte to jeden radek ze souboru a ulozi ho do promene line
                     Console.WriteLine(line);
                 }
+                Console.WriteLine("-------------------------------------------------------------");
             }
         }
 
@@ -63,8 +68,10 @@ namespace PasswordGenerator
                         while (true)
 
                         {
-                            
-                            Console.WriteLine("Please enter password name: ");
+                            Console.WriteLine("-------------------------------------------------------------");
+                            Console.WriteLine("PLEASE ENTER A PASSWORD NAME: ");
+                            Console.WriteLine("-------------------------------------------------------------");
+
                             string passwordName;
                             passwordName = Console.ReadLine();
                             Console.Clear();
@@ -73,7 +80,10 @@ namespace PasswordGenerator
                             if (passwordName.Trim().Length < 1) //trim() vezme " "na zacatku a konci a urizne je
                             {
                                 Console.Clear();
-                                Console.WriteLine("{0} is wrong password name, please try again", passwordName);
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("{0} IS WRONG PASSWORD NAME, PLEASE TRY AGAIN", passwordName);
+                                Console.WriteLine("-------------------------------------------------------------");
+
 
                             }
 
@@ -83,8 +93,10 @@ namespace PasswordGenerator
                             {
                                 passwordName = passwordName.Trim();
                                 Console.Clear();
-                                Console.WriteLine("Your password for {0} is {1}", passwordName, password);
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("YOUR PASSWORD FOR {0} IS {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
+                                Console.WriteLine("-------------------------------------------------------------");
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
                                     sw.WriteLine(passwordName + " " + password);
@@ -111,7 +123,9 @@ namespace PasswordGenerator
                 else if (passwordLenghtinput == "k")
                 {
                     Console.Clear();
+                    Console.WriteLine("-------------------------------------------------------------");
                     Console.WriteLine("END OF PROGRAM");
+                    Console.WriteLine("-------------------------------------------------------------");
                     break;
                 }
 
@@ -161,17 +175,18 @@ namespace PasswordGenerator
                         while (true)
 
                         {
-                            
-                            Console.WriteLine("Please enter password name: ");
+                            Console.WriteLine("-------------------------------------------------------------");
+                            Console.WriteLine("PLEASE ENTER A PASSWORD NAME: ");
+                            Console.WriteLine("-------------------------------------------------------------");
                             string passwordName;
                             passwordName = Console.ReadLine();
                             Console.Clear();
 
                             if (passwordName.Trim().Length < 1) //trim() vezme " "na zacatku a konci a urizne je
                             {
-                                
-                                Console.WriteLine("{0} is wrong password name, please try again", passwordName);
-
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("{0} IS WRONG PASSWORD NAME, PLEASE TRY AGAIN", passwordName);
+                                Console.WriteLine("-------------------------------------------------------------");
                             }
 
 
@@ -180,8 +195,10 @@ namespace PasswordGenerator
                             {
                                 passwordName = passwordName.Trim();
                                 Console.Clear();
-                                Console.WriteLine("Your password for {0} is {1}", passwordName, password);
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("YOUR PASSWORD FOR {0} IS {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
+                                Console.WriteLine("-------------------------------------------------------------");
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
                                     sw.WriteLine(passwordName + " " + password);
@@ -204,7 +221,9 @@ namespace PasswordGenerator
                 else if (passwordLenghtinput == "k")
                 {
                     Console.Clear();
+                    Console.WriteLine("-------------------------------------------------------------");
                     Console.WriteLine("END OF PROGRAM");
+                    Console.WriteLine("-------------------------------------------------------------");
                     break;
                 }
 
@@ -223,7 +242,9 @@ namespace PasswordGenerator
 
             if (!File.Exists(path)) //pokud soubor neexistuje udelej toto
             {
-                Console.WriteLine("File created successfully!");
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("FILE CREATED SUCCESSFULLY!");
+                Console.WriteLine("-------------------------------------------------------------");
                 using (StreamWriter sw = File.CreateText(path)) //vytvori soubor s adresou ktera je v path
                 
                 {
@@ -249,11 +270,11 @@ namespace PasswordGenerator
             {
 
                 Console.WriteLine("-------------------------------------------------------------");
-                Console.WriteLine("Please select the password strength:");
-                Console.WriteLine("0 to show your passwords");
-                Console.WriteLine("1 or + for numbers + characters");
-                Console.WriteLine("2 or ě for characters + numbers + special symbols ");
-                Console.WriteLine("k for end");
+                Console.WriteLine("PLEASE SELECT PASSWORD STRENGHT:");
+                Console.WriteLine("0 TO SHOW YOUR PREVIOUS PASSWORDS");
+                Console.WriteLine("1 OR + FOR NUMBERS + CHARACTERS");
+                Console.WriteLine("2 OR ě FOR CHARACTERS + NUMBERS + SPECIAL SYMBOLS ");
+                Console.WriteLine("K FOR END");
                 Console.WriteLine("-------------------------------------------------------------");
 
                 string pressedKey = Console.ReadLine();
