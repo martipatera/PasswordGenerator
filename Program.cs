@@ -1,3 +1,4 @@
+
 using System;
 namespace PasswordGenerator
 {
@@ -5,10 +6,10 @@ namespace PasswordGenerator
     {
 
 
-        
+
         static void CharactersAndNumbers()
         {
-            
+
             string password = " ";//pripravim si password jako prazdnej string
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbers =
@@ -36,21 +37,21 @@ namespace PasswordGenerator
 
                         }
 
-                        
-                        
+
+
                         while (true)
 
                         {
-                           
+
                             Console.WriteLine("Please enter password name: ");
                             string passwordName;
                             passwordName = Console.ReadLine();
 
-                            if (passwordName.Trim().Length < 1 )
+                            if (passwordName.Trim().Length < 1)
                             {
                                 Console.Clear();
-                                Console.WriteLine("{0} is wrong password name, please try again", passwordName) ;
-                                
+                                Console.WriteLine("{0} is wrong password name, please try again", passwordName);
+
                             }
 
 
@@ -63,11 +64,11 @@ namespace PasswordGenerator
                                 break;
                             }
                         }
-                        
-                        
+
+
 
                         break;
-                        
+
 
                     }
 
@@ -126,7 +127,7 @@ namespace PasswordGenerator
                         while (true)
 
                         {
-                            
+
                             Console.WriteLine("Please enter password name: ");
                             string passwordName;
                             passwordName = Console.ReadLine();
