@@ -11,7 +11,7 @@ namespace PasswordGenerator
         static void MyPasswords()
         {
 
-            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
+            string path = @"mypasswords.txt";
 
             using (StreamReader sr = new StreamReader(path)) //cte to co je v path
             {
@@ -31,7 +31,7 @@ namespace PasswordGenerator
 
         static void CharactersAndNumbers()
         {
-            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
+            string path = @"mypasswords.txt";
             string password = " ";//pripravim si password jako prazdnej string
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbers =
@@ -141,7 +141,7 @@ namespace PasswordGenerator
         static void CharactersNumbersAndSymbols()
 
         {
-            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
+            string path = @"mypasswords.txt";
             string password = " ";//pripravim si password jako prazdnej string
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbersandspecialSymbols =
@@ -238,14 +238,14 @@ namespace PasswordGenerator
         static void Main(string[] args)
         {
             Console.Clear();
-            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
+            string path = @"mypasswords.txt";
 
             if (!File.Exists(path)) //pokud soubor neexistuje udelej toto
             {
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("FILE CREATED SUCCESSFULLY!");
                 Console.WriteLine("-------------------------------------------------------------");
-                using (StreamWriter sw = File.CreateText(path)) //vytvori soubor s adresou ktera je v path
+                using (StreamWriter sw = new StreamWriter(path)) //vytvori soubor s adresou ktera je v path
                 
                 {
                    
