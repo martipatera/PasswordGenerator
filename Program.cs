@@ -1,15 +1,18 @@
 
 using System;
+using System.IO;
 namespace PasswordGenerator
+    
+
+
 {
     internal class Program
     {
-
-
+        
 
         static void CharactersAndNumbers()
         {
-
+            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
             string password = " ";//pripravim si password jako prazdnej string
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbers =
@@ -68,6 +71,10 @@ namespace PasswordGenerator
                                 Console.Clear();
                                 Console.WriteLine("Your password for {0} is {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
+                                using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
+                                {
+                                    sw.WriteLine(passwordName + " " + password);
+                                }
                                 break;
                             }
                         }
@@ -104,7 +111,9 @@ namespace PasswordGenerator
         }
 
         static void CharactersNumbersAndSymbols()
+
         {
+            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
             string password = " ";//pripravim si password jako prazdnej string
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbersandspecialSymbols =
@@ -159,6 +168,10 @@ namespace PasswordGenerator
                                 Console.Clear();
                                 Console.WriteLine("Your password for {0} is {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
+                                using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
+                                {
+                                    sw.WriteLine(passwordName + " " + password);
+                                }
                                 break;
                             }
                         }
@@ -192,6 +205,25 @@ namespace PasswordGenerator
         static void Main(string[] args)
         {
             Console.Clear();
+            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
+
+            if (!File.Exists(path)) //pokud soubor neexistuje udelej toto
+            {
+                Console.WriteLine("File created successfully!");
+                using (StreamWriter sw = File.CreateText(path)) //vytvori soubor s adresou ktera je v path
+                
+                {
+                   
+                }
+                
+
+
+            }
+           
+
+
+
+
 
             string input;
 
