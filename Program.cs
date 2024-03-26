@@ -5,68 +5,10 @@ namespace PasswordGenerator
     {
 
 
-        static void OnlyCharacters()
-        {
-            string password = " "; //pripravim si password jako prazdnej string
-            Random random = new Random();// musim declarovat abych mohl pouzivat random
-            char[] characters =
-                {
-                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-                };
-            while (true) //nekonecna smicka, zastavi jedine break
-            {
-
-                Console.WriteLine("-------------------------------------------------------------");
-                Console.WriteLine("ENTER A PASSWORD LENGHT: ");
-                Console.WriteLine("PRESS K FOR END ");
-                Console.WriteLine("-------------------------------------------------------------");
-                string passwordLenghtinput = Console.ReadLine();
-                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
-                {
-                    if (passwordLenght >= 8)
-                    {
-
-
-                        for (int i = 0; i < passwordLenght; i++) //konecny forloop, ktery se bude opakovat tolikrat, kolikrat dam input kterej je > 8
-                        {
-                            int randomIndex = random.Next(characters.Length); //tento radek mi bude vytvaret nahodny index (s maximalnim rozsahem toho daneho pole)
-                            password = password + characters[randomIndex];  //characters[randomIndex] je ten char ktery to random vygeneruje
-                            
-                        }
-                        Console.WriteLine(password);
-
-
-                        break;
-
-                    }
-
-
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
-                    }
-                }
-                else if (passwordLenghtinput == "k")
-                {
-                    Console.Clear();
-                    Console.WriteLine("END OF PROGRAM");
-                    break;
-                }
-
-                else//kdyz se nepovede prevedeni string inputu na int, provede se tento radek
-                {
-                    Console.Clear();
-                    Console.WriteLine(passwordLenghtinput + " IS INVALID INPUT PLEASE TRY AGAIN");
-                }
-
-            }
-
-        }
-
+        
         static void CharactersAndNumbers()
         {
+            
             string password = " ";//pripravim si password jako prazdnej string
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             char[] charactersandnumbers =
@@ -93,7 +35,36 @@ namespace PasswordGenerator
 
 
                         }
-                        Console.WriteLine(password);
+
+                        
+                        
+                        while (true)
+
+                        {
+                           
+                            Console.WriteLine("Please enter password name: ");
+                            string passwordName;
+                            passwordName = Console.ReadLine();
+
+                            if (passwordName.Trim().Length < 1 )
+                            {
+                                Console.Clear();
+                                Console.WriteLine("{0} is wrong password name, please try again", passwordName) ;
+                                
+                            }
+
+
+
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Your password for {0} is {1}", passwordName, password);
+                                Console.WriteLine(passwordName + " " + password);
+                                break;
+                            }
+                        }
+                        
+                        
 
                         break;
                         
@@ -152,7 +123,31 @@ namespace PasswordGenerator
                             password = password + charactersandnumbersandspecialSymbols[randomIndex];  //characters[randomIndex] je ten char ktery to random vygeneruje
 
                         }
-                        Console.WriteLine(password);
+                        while (true)
+
+                        {
+                            
+                            Console.WriteLine("Please enter password name: ");
+                            string passwordName;
+                            passwordName = Console.ReadLine();
+
+                            if (passwordName.Trim().Length < 1)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("{0} is wrong password name, please try again", passwordName);
+
+                            }
+
+
+
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Your password for {0} is {1}", passwordName, password);
+                                Console.WriteLine(passwordName + " " + password);
+                                break;
+                            }
+                        }
 
                         break;
 
@@ -195,9 +190,8 @@ namespace PasswordGenerator
 
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("Please select the password strength:");
-                Console.WriteLine("1 or + for only characters");
-                Console.WriteLine("2 or ě for characters + numbers");
-                Console.WriteLine("3 or š for characters + numbers + special symbols");
+                Console.WriteLine("1 or + for numbers + characters");
+                Console.WriteLine("2 or ě for characters + numbers + special symbols ");
                 Console.WriteLine("k for end");
                 Console.WriteLine("-------------------------------------------------------------");
 
@@ -207,24 +201,17 @@ namespace PasswordGenerator
 
 
 
-                if (input.Length == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "3" || input == "š" || input == "k"))
+                if (input.Length == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "k"))
                 {
                     switch (input)
                     {
                         case "1":
                         case "+":
-                            OnlyCharacters();
-                            break;//ukonceni switche, musi byt!!!
-
-
-
-                        case "2":
-                        case "ě":
                             CharactersAndNumbers();
                             break;//ukonceni switche, musi byt!!!
 
-                        case "3":
-                        case "š":
+                        case "2":
+                        case "ě":
                             CharactersNumbersAndSymbols();
                             break;//ukonceni switche, musi byt!!!
 
