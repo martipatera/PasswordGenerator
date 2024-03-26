@@ -20,11 +20,15 @@ namespace PasswordGenerator
                 };// cisla tam mam 2x aby byla jejich vetsis cetnost protoze jinak jich to generovalo hrozne malo
             while (true) //nekonecna smicka, zastavi jecine break
             {
+                
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("ENTER A PASSWORD LENGHT: ");
                 Console.WriteLine("PRESS K FOR END ");
                 Console.WriteLine("-------------------------------------------------------------");
+                
                 string passwordLenghtinput = Console.ReadLine();
+                Console.Clear();
+                
                 if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
                 {
                     if (passwordLenght >= 8)
@@ -42,12 +46,14 @@ namespace PasswordGenerator
                         while (true)
 
                         {
-
+                            
                             Console.WriteLine("Please enter password name: ");
                             string passwordName;
                             passwordName = Console.ReadLine();
+                            Console.Clear();
 
-                            if (passwordName.Trim().Length < 1)
+
+                            if (passwordName.Trim().Length < 1) //trim() vezme " "na zacatku a konci a urizne je
                             {
                                 Console.Clear();
                                 Console.WriteLine("{0} is wrong password name, please try again", passwordName);
@@ -58,6 +64,7 @@ namespace PasswordGenerator
 
                             else
                             {
+                                passwordName = passwordName.Trim();
                                 Console.Clear();
                                 Console.WriteLine("Your password for {0} is {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
@@ -75,6 +82,7 @@ namespace PasswordGenerator
 
                     else
                     {
+
                         Console.Clear();
                         Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
                     }
@@ -109,11 +117,14 @@ namespace PasswordGenerator
                 };
             while (true) //nekonecna smicka, zastavi jecine break
             {
+                
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("ENTER A PASSWORD LENGHT: ");
                 Console.WriteLine("PRESS K FOR END ");
                 Console.WriteLine("-------------------------------------------------------------");
                 string passwordLenghtinput = Console.ReadLine();
+                Console.Clear();
+
                 if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
                 {
                     if (passwordLenght >= 8)
@@ -127,14 +138,15 @@ namespace PasswordGenerator
                         while (true)
 
                         {
-
+                            
                             Console.WriteLine("Please enter password name: ");
                             string passwordName;
                             passwordName = Console.ReadLine();
+                            Console.Clear();
 
-                            if (passwordName.Trim().Length < 1)
+                            if (passwordName.Trim().Length < 1) //trim() vezme " "na zacatku a konci a urizne je
                             {
-                                Console.Clear();
+                                
                                 Console.WriteLine("{0} is wrong password name, please try again", passwordName);
 
                             }
@@ -143,6 +155,7 @@ namespace PasswordGenerator
 
                             else
                             {
+                                passwordName = passwordName.Trim();
                                 Console.Clear();
                                 Console.WriteLine("Your password for {0} is {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
@@ -157,7 +170,7 @@ namespace PasswordGenerator
 
                     else
                     {
-                        Console.Clear();
+                        Console.Clear();  
                         Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
                     }
                 }
@@ -208,16 +221,19 @@ namespace PasswordGenerator
                     {
                         case "1":
                         case "+":
+                            Console.Clear();
                             CharactersAndNumbers();
                             break;//ukonceni switche, musi byt!!!
 
                         case "2":
                         case "ě":
+                            Console.Clear();
                             CharactersNumbersAndSymbols();
                             break;//ukonceni switche, musi byt!!!
 
 
                         case "k":
+                            Console.Clear();
                             Console.WriteLine("END OF PROGRAM");
                             break; //ukonceni switche, musi byt!!!
 
