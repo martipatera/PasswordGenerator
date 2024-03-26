@@ -245,7 +245,7 @@ namespace PasswordGenerator
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("FILE CREATED SUCCESSFULLY!");
                 Console.WriteLine("-------------------------------------------------------------");
-                using (StreamWriter sw = new StreamWriter(path)) //vytvori soubor s adresou ktera je v path
+                using (StreamWriter sw = new StreamWriter(path)) //vytvori soubor s adresou ktera je v path, vytvori se v programu kde mame program.cs, ve ws v bin/debug
                 
                 {
                    
@@ -255,11 +255,6 @@ namespace PasswordGenerator
 
             }
            
-
-
-
-
-
             string input;
 
 
