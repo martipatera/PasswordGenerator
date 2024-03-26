@@ -8,7 +8,21 @@ namespace PasswordGenerator
 {
     internal class Program
     {
-        
+        static void MyPasswords()
+        {
+
+            string path = @"/Users/martinpatera/Projects/PasswordGenerator/mypasswords.txt";
+
+            using (StreamReader sr = new StreamReader(path)) //cte to co je v path
+            {
+                string line;
+                while (!(sr.EndOfStream)) // dokud NEnastane konec souboru bude cist radky
+                {
+                    line = sr.ReadLine(); //nacte to jeden radek ze souboru a ulozi ho do promene line
+                    Console.WriteLine(line);
+                }
+            }
+        }
 
         static void CharactersAndNumbers()
         {
@@ -236,6 +250,7 @@ namespace PasswordGenerator
 
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("Please select the password strength:");
+                Console.WriteLine("0 to show your passwords");
                 Console.WriteLine("1 or + for numbers + characters");
                 Console.WriteLine("2 or ě for characters + numbers + special symbols ");
                 Console.WriteLine("k for end");
@@ -247,7 +262,7 @@ namespace PasswordGenerator
 
 
 
-                if (input.Length == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "k"))
+                if (input.Length == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "k" || input == "0"))
                 {
                     switch (input)
                     {
@@ -262,6 +277,10 @@ namespace PasswordGenerator
                             Console.Clear();
                             CharactersNumbersAndSymbols();
                             break;//ukonceni switche, musi byt!!!
+
+                        case "0":
+                            MyPasswords();
+                            break;
 
 
                         case "k":
