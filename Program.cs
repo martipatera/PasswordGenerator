@@ -12,18 +12,31 @@ namespace PasswordGenerator
         {
 
             string path = @"mypasswords.txt";
+            string line;
+
+
 
             using (StreamReader sr = new StreamReader(path)) //cte to co je v path
             {
-                string line;
+                
                 Console.Clear();
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("YOUR PASSWORDS");
                 Console.WriteLine("-------------------------------------------------------------");
-                while (!(sr.EndOfStream)) // dokud NEnastane konec souboru bude cist radky
+
+                
+                if (sr.Peek() == -1 )//metoda, ktera zkontroluje zda je prvni znak v souboru prazdny ale nenacte ho, kdyz je prazdny vrati -1
                 {
-                    line = sr.ReadLine(); //nacte to jeden radek ze souboru a ulozi ho do promene line
-                    Console.WriteLine(line);
+                    Console.WriteLine("NO PASSWORDS YET!");
+                }
+
+                else
+                {
+                    while (!(sr.EndOfStream))  // dokud NEnastane konec
+                    {
+                        line = sr.ReadLine();
+                        Console.WriteLine(line);
+                    }
                 }
                 Console.WriteLine("-------------------------------------------------------------");
             }
@@ -100,7 +113,9 @@ namespace PasswordGenerator
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
                                     sw.WriteLine(passwordName + " " + password);
+                                    
                                 }
+
                                 break;
                             }
                         }
@@ -202,6 +217,7 @@ namespace PasswordGenerator
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
                                     sw.WriteLine(passwordName + " " + password);
+                                    
                                 }
                                 break;
                             }
