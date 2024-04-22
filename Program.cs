@@ -20,14 +20,12 @@ namespace PasswordGenerator
             {
                 
                 Console.Clear();
-                Console.WriteLine("-------------------------------------------------------------");
-                Console.WriteLine("YOUR PASSWORDS");
-                Console.WriteLine("-------------------------------------------------------------");
-
+                Console.WriteLine("---------------------------YOUR PASSWORDS--------------------");
                 
                 if (sr.Peek() == -1 )//metoda, ktera zkontroluje zda je prvni znak v souboru prazdny ale nenacte ho, kdyz je prazdny vrati -1
                 {
                     Console.WriteLine("NO PASSWORDS YET!");
+                    
                 }
 
                 else
@@ -39,7 +37,11 @@ namespace PasswordGenerator
                     }
                 }
                 Console.WriteLine("-------------------------------------------------------------");
+                Console.WriteLine("PRESS ANY KEY FOR MAIN MENU");
+                Console.WriteLine("-------------------------------------------------------------");
+                Console.ReadKey();
             }
+
         }
 
         static void CharactersAndNumbers()
@@ -58,10 +60,10 @@ namespace PasswordGenerator
                 
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("ENTER A PASSWORD LENGHT: ");
-                Console.WriteLine("PRESS K FOR END ");
+                Console.WriteLine("ENTER K FOR MAIN MENU ");
                 Console.WriteLine("-------------------------------------------------------------");
                 
-                string passwordLenghtinput = Console.ReadLine();
+                string passwordLenghtinput = Console.ReadLine().ToLower();
                 Console.Clear();
                 
                 if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
@@ -83,33 +85,41 @@ namespace PasswordGenerator
                         {
                             Console.WriteLine("-------------------------------------------------------------");
                             Console.WriteLine("PLEASE ENTER A PASSWORD NAME: ");
+                            Console.WriteLine("ENTER K FOR MAIN MENU: ");
                             Console.WriteLine("-------------------------------------------------------------");
 
                             string passwordName;
-                            passwordName = Console.ReadLine();
+                            passwordName = Console.ReadLine().Trim().Replace(" ", ""); ;
                             Console.Clear();
 
 
-                            if (passwordName.Trim().Length < 1) //trim() vezme " "na zacatku a konci a urizne je
+                            if (passwordName.Length < 1) //trim() vezme " "na zacatku a konci a urizne je
                             {
                                 Console.Clear();
                                 Console.WriteLine("-------------------------------------------------------------");
                                 Console.WriteLine("{0} IS WRONG PASSWORD NAME, PLEASE TRY AGAIN", passwordName);
                                 Console.WriteLine("-------------------------------------------------------------");
 
+                            }
+                            else if (passwordName == "k" || passwordName == "K")
+                            {
 
+                                break;
                             }
 
 
 
                             else
                             {
-                                passwordName = passwordName.Trim();
+                                
                                 Console.Clear();
                                 Console.WriteLine("-------------------------------------------------------------");
                                 Console.WriteLine("YOUR PASSWORD FOR {0} IS {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
                                 Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("PRES ANY KEY FOR MAIN MENU");
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.ReadKey();
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
                                     sw.WriteLine(passwordName + " " + password);
@@ -137,10 +147,7 @@ namespace PasswordGenerator
                 }
                 else if (passwordLenghtinput == "k")
                 {
-                    Console.Clear();
-                    Console.WriteLine("-------------------------------------------------------------");
-                    Console.WriteLine("END OF PROGRAM");
-                    Console.WriteLine("-------------------------------------------------------------");
+                    
                     break;
                 }
 
@@ -174,9 +181,9 @@ namespace PasswordGenerator
                 
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine("ENTER A PASSWORD LENGHT: ");
-                Console.WriteLine("PRESS K FOR END ");
+                Console.WriteLine("ENTER K FOR MAIN MENU ");
                 Console.WriteLine("-------------------------------------------------------------");
-                string passwordLenghtinput = Console.ReadLine();
+                string passwordLenghtinput = Console.ReadLine().ToLower();
                 Console.Clear();
 
                 if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
@@ -194,28 +201,36 @@ namespace PasswordGenerator
                         {
                             Console.WriteLine("-------------------------------------------------------------");
                             Console.WriteLine("PLEASE ENTER A PASSWORD NAME: ");
+                            Console.WriteLine("ENTER K FOR MAIN MENU: ");
                             Console.WriteLine("-------------------------------------------------------------");
                             string passwordName;
-                            passwordName = Console.ReadLine();
+                            passwordName = Console.ReadLine().Trim().Replace(" ", "");
                             Console.Clear();
 
-                            if (passwordName.Trim().Length < 1) //trim() vezme " "na zacatku a konci a urizne je
+                            if (passwordName.Length < 1) //trim() vezme " "na zacatku a konci a urizne je
                             {
                                 Console.WriteLine("-------------------------------------------------------------");
                                 Console.WriteLine("{0} IS WRONG PASSWORD NAME, PLEASE TRY AGAIN", passwordName);
                                 Console.WriteLine("-------------------------------------------------------------");
                             }
 
+                            else if (passwordName == "k" || passwordName == "K")
+                            {
 
+                                break;
+                            }
 
                             else
                             {
-                                passwordName = passwordName.Trim();
+                                
                                 Console.Clear();
                                 Console.WriteLine("-------------------------------------------------------------");
                                 Console.WriteLine("YOUR PASSWORD FOR {0} IS {1}", passwordName, password);
                                 Console.WriteLine(passwordName + " " + password);
                                 Console.WriteLine("-------------------------------------------------------------");
+                                Console.WriteLine("PRES ANY KEY FOR MAIN MENU");
+                                Console.WriteLine("-------------------------------------------------------------");
+                                Console.ReadKey();
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
                                     sw.WriteLine(passwordName + " " + password);
@@ -238,10 +253,7 @@ namespace PasswordGenerator
                 }
                 else if (passwordLenghtinput == "k")
                 {
-                    Console.Clear();
-                    Console.WriteLine("-------------------------------------------------------------");
-                    Console.WriteLine("END OF PROGRAM");
-                    Console.WriteLine("-------------------------------------------------------------");
+                    
                     break;
                 }
 
@@ -255,84 +267,99 @@ namespace PasswordGenerator
         }
         static void Main(string[] args)
         {
-            Console.Clear();
-            string path = @"mypasswords.txt";
-
-            if (!File.Exists(path)) //pokud soubor neexistuje udelej toto
-            {
-                Console.WriteLine("-------------------------------------------------------------");
-                Console.WriteLine("FILE CREATED SUCCESSFULLY!");
-                Console.WriteLine("-------------------------------------------------------------");
-                using (StreamWriter sw = new StreamWriter(path)) //vytvori soubor s adresou ktera je v path, vytvori se v programu kde mame program.cs, ve ws v bin/debug
-                
-                {
-                   
-                }
-                
-
-
-            }
-           
             string input;
 
-
-            while (true) /* podminku nastavime aby byla vzdy pravdiva = je nekonecna
-                          * kdyz podminka if bude pravdiva, hodi se to do switche a ukonci se while loop pomoci break 
-                          * kdyz zadam cokoliv jineho bude se to opakovat protoze v else nemam break*/
-
+            do
             {
 
-                Console.WriteLine("-------------------------------------------------------------");
-                Console.WriteLine("PLEASE SELECT PASSWORD STRENGHT:");
-                Console.WriteLine("0 TO SHOW YOUR PREVIOUS PASSWORDS");
-                Console.WriteLine("1 OR + FOR NUMBERS + CHARACTERS");
-                Console.WriteLine("2 OR ě FOR CHARACTERS + NUMBERS + SPECIAL SYMBOLS ");
-                Console.WriteLine("K FOR END");
-                Console.WriteLine("-------------------------------------------------------------");
 
-                string pressedKey = Console.ReadLine();
-                input = pressedKey.ToLower();
+                Console.Clear();
+                string path = @"mypasswords.txt";
 
-
-
-
-                if (input.Length == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "k" || input == "0"))
+                if (!File.Exists(path)) //pokud soubor neexistuje udelej toto
                 {
-                    switch (input)
+                    Console.WriteLine("-------------------------------------------------------------");
+                    Console.WriteLine("FILE CREATED SUCCESSFULLY!");
+                    Console.WriteLine("-------------------------------------------------------------");
+                    using (StreamWriter sw = new StreamWriter(path)) //vytvori soubor s adresou ktera je v path, vytvori se v programu kde mame program.cs, ve ws v bin/debug
+
                     {
-                        case "1":
-                        case "+":
-                            Console.Clear();
-                            CharactersAndNumbers();
-                            break;//ukonceni switche, musi byt!!!
 
-                        case "2":
-                        case "ě":
-                            Console.Clear();
-                            CharactersNumbersAndSymbols();
-                            break;//ukonceni switche, musi byt!!!
-
-                        case "0":
-                            MyPasswords();
-                            break;
-
-
-                        case "k":
-                            Console.Clear();
-                            Console.WriteLine("END OF PROGRAM");
-                            break; //ukonceni switche, musi byt!!!
-
-                        default:
-                            break; //ukonceni switche, musi byt!!!
                     }
 
-                    break; // ukonceni nekonecne smycky smycky po zadani platneho inputu
+
+
                 }
-                else //bude se opakovat dokud nezadam spravnou podminku if
+
+
+
+
+                while (true) /* podminku nastavime aby byla vzdy pravdiva = je nekonecna
+                              * kdyz podminka if bude pravdiva, hodi se to do switche a ukonci se while loop pomoci break 
+                              * kdyz zadam cokoliv jineho bude se to opakovat protoze v else nemam break*/
+
                 {
-                    Console.Clear();
-                    Console.WriteLine(input + " IS WRONG INPUT PLEASE TRY AGAIN");
+
+                    Console.WriteLine("-------------------------------------------------------------");
+                    Console.WriteLine("PLEASE SELECT PASSWORD STRENGHT:");
+                    Console.WriteLine("0 TO SHOW YOUR PREVIOUS PASSWORDS");
+                    Console.WriteLine("1 OR + FOR NUMBERS + CHARACTERS");
+                    Console.WriteLine("2 OR ě FOR CHARACTERS + NUMBERS + SPECIAL SYMBOLS ");
+                    Console.WriteLine("ENTER K OR TYPE QUIT FOR END");
+                    Console.WriteLine("-------------------------------------------------------------");
+
+                    string pressedKey = Console.ReadLine();
+                    input = pressedKey.ToLower();
+
+
+
+
+                    if ((input == "quit") || (input.Length == 1 && (input == "1" || input == "+" || input == "2" || input == "ě" || input == "k" || input == "0")))
+                    {
+                        switch (input)
+                        {
+                            case "1":
+                            case "+":
+                                Console.Clear();
+                                CharactersAndNumbers();
+                                break;//ukonceni switche, musi byt!!!
+
+                            case "2":
+                            case "ě":
+                                Console.Clear();
+                                CharactersNumbersAndSymbols();
+                                break;//ukonceni switche, musi byt!!!
+
+                            case "0":
+                                MyPasswords();
+                                break;
+
+
+                            case "k":
+                                Console.Clear();
+                                Console.WriteLine("END OF PROGRAM");
+                                Environment.Exit(0);
+                                break; //ukonceni switche, musi byt!!!
+
+                            default:
+                                break; //ukonceni switche, musi byt!!!
+                        }
+
+                        break; // ukonceni nekonecne smycky smycky po zadani platneho inputu
+                    }
+                    else //bude se opakovat dokud nezadam spravnou podminku if
+                    {
+                        Console.Clear();
+                        Console.WriteLine(input + " IS WRONG INPUT PLEASE TRY AGAIN");
+                    }
                 }
+
+            }
+            while (input != "quit" );
+            {
+                Console.Clear();
+                Console.WriteLine("END OF PROGRAM");
+
             }
 
 
@@ -340,6 +367,4 @@ namespace PasswordGenerator
 
 
     }
-
-
 }
