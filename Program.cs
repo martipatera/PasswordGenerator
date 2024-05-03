@@ -8,10 +8,30 @@ namespace PasswordGenerator
 {
     internal class Program
     {
+        static string input;
+        static string password = " ";//pripravim si password jako prazdnej string
+        static string path = @"mypasswords.txt";
+        static char[] charactersandnumbers =
+                {
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0','1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+                };// cisla tam mam 2x aby byla jejich vetsis cetnost protoze jinak jich to generovalo hrozne malo
+
+        static char[] charactersandnumbersandspecialSymbols =
+                {
+                        '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',
+                        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@',
+                        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+                        'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                        '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
+                        'a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                        'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+                 };
         static void MyPasswords()
         {
 
-            string path = @"mypasswords.txt";
+            
             string line;
 
 
@@ -46,15 +66,10 @@ namespace PasswordGenerator
 
         static void CharactersAndNumbers()
         {
-            string path = @"mypasswords.txt";
-            string password = " ";//pripravim si password jako prazdnej string
+            
+            
             Random random = new Random();// musim declarovat abych mohl pouzivat random
-            char[] charactersandnumbers =
-                {
-                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-                    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0','1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
-                };// cisla tam mam 2x aby byla jejich vetsis cetnost protoze jinak jich to generovalo hrozne malo
+            
             while (true) //nekonecna smicka, zastavi jecine break
             {
                 
@@ -163,19 +178,10 @@ namespace PasswordGenerator
         static void CharactersNumbersAndSymbols()
 
         {
-            string path = @"mypasswords.txt";
-            string password = " ";//pripravim si password jako prazdnej string
+            
+            
             Random random = new Random();// musim declarovat abych mohl pouzivat random
-            char[] charactersandnumbersandspecialSymbols =
-                {
-                        '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',
-                        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@',
-                        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
-                        'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                        '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
-                        'a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
-                        'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-                 };
+            
             while (true) //nekonecna smicka, zastavi jecine break
             {
                 
@@ -267,14 +273,14 @@ namespace PasswordGenerator
         }
         static void Main(string[] args)
         {
-            string input;
+            
 
             do
             {
 
 
                 Console.Clear();
-                string path = @"mypasswords.txt";
+                
 
                 if (!File.Exists(path)) //pokud soubor neexistuje udelej toto
                 {
