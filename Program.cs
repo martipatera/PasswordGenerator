@@ -9,14 +9,14 @@ namespace PasswordGenerator
     internal class Program
     {
         static string input;
-        static string password = " ";//pripravim si password jako prazdnej string
+        static string password = "";//pripravim si password jako prazdnej string
         static string path = @"mypasswords.txt";
         static char[] charactersandnumbers =
                 {
                     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
                     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0','1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
-                };// cisla tam mam 2x aby byla jejich vetsis cetnost protoze jinak jich to generovalo hrozne malo
+                };// cisla tam mam 2x aby byla jejich vetsis cetnost protoze jinak jich to generovalo hrozne malo,array typu char pro cely projekt, proto static
 
         static char[] charactersandnumbersandspecialSymbols =
                 {
@@ -27,8 +27,10 @@ namespace PasswordGenerator
                         '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
                         'a', 'b', 'c', 'd', 'e','f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
                         'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-                 };
-        static void MyPasswords()
+                 };// array typu char pro cely projekt, proto static
+
+
+        static void MyPasswords()//metoda na vypis hesel
         {
 
             
@@ -40,7 +42,7 @@ namespace PasswordGenerator
             {
                 
                 Console.Clear();
-                Console.WriteLine("---------------------------YOUR PASSWORDS--------------------");
+                Console.WriteLine("---------------------------YOUR PASSWORDS---------------------");
                 
                 if (sr.Peek() == -1 )//metoda, ktera zkontroluje zda je prvni znak v souboru prazdny ale nenacte ho, kdyz je prazdny vrati -1
                 {
@@ -64,13 +66,13 @@ namespace PasswordGenerator
 
         }
 
-        static void CharactersAndNumbers()
+        static void CharactersAndNumbers()//metoda na vygenerovani hesla z cisel a znaku
         {
             
             
             Random random = new Random();// musim declarovat abych mohl pouzivat random
             
-            while (true) //nekonecna smicka, zastavi jecine break
+            while (true) //nekonecna smicka, zastavi jedine break
             {
                 
                 Console.WriteLine("-------------------------------------------------------------");
@@ -81,7 +83,7 @@ namespace PasswordGenerator
                 string passwordLenghtinput = Console.ReadLine().ToLower();
                 Console.Clear();
                 
-                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int(true or false) a da ho do nove promene passwordLenght
                 {
                     if (passwordLenght >= 8)
                     {
@@ -95,7 +97,7 @@ namespace PasswordGenerator
 
 
 
-                        while (true)
+                        while (true)//nekonecny cyklus ukonceny break
 
                         {
                             Console.WriteLine("-------------------------------------------------------------");
@@ -104,11 +106,11 @@ namespace PasswordGenerator
                             Console.WriteLine("-------------------------------------------------------------");
 
                             string passwordName;
-                            passwordName = Console.ReadLine().Trim().Replace(" ", ""); ;
+                            passwordName = Console.ReadLine().Trim().Replace(" ", "");//trim() vezme mezery na zacatku a konci a urizne je
                             Console.Clear();
 
 
-                            if (passwordName.Length < 1) //trim() vezme " "na zacatku a konci a urizne je
+                            if (passwordName.Length < 1) 
                             {
                                 Console.Clear();
                                 Console.WriteLine("-------------------------------------------------------------");
@@ -116,7 +118,7 @@ namespace PasswordGenerator
                                 Console.WriteLine("-------------------------------------------------------------");
 
                             }
-                            else if (passwordName == "k" || passwordName == "K")
+                            else if (passwordName == "k" || passwordName == "K")//pro navraceni do main menu
                             {
 
                                 break;
@@ -137,8 +139,10 @@ namespace PasswordGenerator
                                 Console.ReadKey();
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
-                                    sw.WriteLine(passwordName + " " + password);
-                                    
+                                    sw.WriteLine(passwordName + " " + password);//propise veci do souboru
+                                    password = "";//musim vymazat heslo aby nezustalo v promene
+
+
                                 }
 
                                 break;
@@ -160,7 +164,7 @@ namespace PasswordGenerator
                         Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
                     }
                 }
-                else if (passwordLenghtinput == "k")
+                else if (passwordLenghtinput == "k" || passwordLenghtinput == "K")// pro navraceni do main menu
                 {
                     
                     break;
@@ -175,7 +179,7 @@ namespace PasswordGenerator
             }
         }
 
-        static void CharactersNumbersAndSymbols()
+        static void CharactersNumbersAndSymbols()//metoda na vygenerovani hesla z cisel znaku a specialnich symbolu
 
         {
             
@@ -192,7 +196,7 @@ namespace PasswordGenerator
                 string passwordLenghtinput = Console.ReadLine().ToLower();
                 Console.Clear();
 
-                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input na int a da ho do promene passwordLenght
+                if (int.TryParse(passwordLenghtinput, out int passwordLenght))//zkusi prevest string input(true or false) na int a da ho do promene passwordLenght
                 {
                     if (passwordLenght >= 8)
                     {
@@ -202,7 +206,7 @@ namespace PasswordGenerator
                             password = password + charactersandnumbersandspecialSymbols[randomIndex];  //characters[randomIndex] je ten char ktery to random vygeneruje
 
                         }
-                        while (true)
+                        while (true)//nekonecna smycka ukoncena break
 
                         {
                             Console.WriteLine("-------------------------------------------------------------");
@@ -210,17 +214,17 @@ namespace PasswordGenerator
                             Console.WriteLine("ENTER K FOR MAIN MENU: ");
                             Console.WriteLine("-------------------------------------------------------------");
                             string passwordName;
-                            passwordName = Console.ReadLine().Trim().Replace(" ", "");
+                            passwordName = Console.ReadLine().Trim().Replace(" ", "");//trim() vezme mezery na zacatku a konci a urizne je
                             Console.Clear();
 
-                            if (passwordName.Length < 1) //trim() vezme " "na zacatku a konci a urizne je
+                            if (passwordName.Length < 1) 
                             {
                                 Console.WriteLine("-------------------------------------------------------------");
                                 Console.WriteLine("{0} IS WRONG PASSWORD NAME, PLEASE TRY AGAIN", passwordName);
                                 Console.WriteLine("-------------------------------------------------------------");
                             }
 
-                            else if (passwordName == "k" || passwordName == "K")
+                            else if (passwordName == "k" || passwordName == "K")//pro navraceni do main menu
                             {
 
                                 break;
@@ -239,8 +243,10 @@ namespace PasswordGenerator
                                 Console.ReadKey();
                                 using (StreamWriter sw = File.AppendText(path)) //using aby se soubor automaticky uzavrel, AppendText vlozi ten text co chci do toho naseho souboru
                                 {
-                                    sw.WriteLine(passwordName + " " + password);
-                                    
+                                    sw.WriteLine(passwordName + " " + password);//propise veci do souboru
+                                    password = "";//musim vymazat heslo aby nezustalo v promene
+
+
                                 }
                                 break;
                             }
@@ -257,7 +263,7 @@ namespace PasswordGenerator
                         Console.WriteLine("PASSWORD MUST BE AT LEAST 8 CHARACTERS LONG");
                     }
                 }
-                else if (passwordLenghtinput == "k")
+                else if (passwordLenghtinput == "k" || passwordLenghtinput == "K")//pro navraceni do main menu
                 {
                     
                     break;
@@ -271,6 +277,8 @@ namespace PasswordGenerator
 
             }
         }
+
+
         static void Main(string[] args)
         {
             
@@ -361,7 +369,7 @@ namespace PasswordGenerator
                 }
 
             }
-            while (input != "quit" );
+            while (input != "quit" );//velky while cyklus aby program furt bezel
             {
                 Console.Clear();
                 Console.WriteLine("END OF PROGRAM");
